@@ -12,7 +12,7 @@ public class Main
     System.out.println(caughtSpeeding(85, true));
   }
 
-  public int caughtSpeeding(int speed, boolean isBirthday) {
+  public static int caughtSpeeding(int speed, boolean isBirthday) {
     if(isBirthday) {
       speed = speed - 5;
     }
