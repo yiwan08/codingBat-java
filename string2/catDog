@@ -1,1 +1,28 @@
+/*
+Return true if the string "cat" and "dog" appear the same number of times in the given string.
 
+catDog("catdog") → true
+catDog("catcat") → false
+catDog("1cat1cadodog") → true
+*/
+
+public class Main
+{
+  public static void main(String[] args) {
+    System.out.println(catDog("raining cat and dog"));
+  }
+
+  public static boolean catDog(String str) {
+    int resCat = 0;
+    int resDog = 0;
+    for(int i = 0; i < str.length() - 2; i++) {
+      if(str.substring(i, i + 3).equals("cat")) {
+        resCat = resCat + 1;
+      }
+      if(str.substring(i, i + 3).equals("dog")) {
+        resDog = resDog + 1;
+      }
+    }
+    return resCat == resDog;
+  }
+}
