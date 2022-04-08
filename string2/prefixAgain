@@ -1,0 +1,25 @@
+/*
+Given a string, consider the prefix string made of the first N chars of the string. Does that prefix string appear somewhere else in the string? Assume that the string is not empty and that N is in the range 1..str.length().
+
+prefixAgain("abXYabc", 1) → true
+prefixAgain("abXYabc", 2) → true
+prefixAgain("abXYabc", 3) → false
+*/
+
+public class Main
+{
+  public static void main(String[] args) {
+    System.out.println(prefixAgain("Hello World Hello", 2));
+  }
+
+  public static boolean prefixAgain(String str, int n) {
+    String prfx = str.substring(0, n);
+    // public int indexOf(String str, int fromIndex)
+    return (str.indexOf(prfx, 1) != -1);
+
+    // OR
+
+    String pre = str.substring(0, n);
+    return str.substring(n).indexOf(pre) != -1;
+  }
+}
