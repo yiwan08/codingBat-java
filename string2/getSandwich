@@ -1,0 +1,44 @@
+/*
+A sandwich is two pieces of bread with something in between. Return the string that is between the first and last appearance of "bread" in the given string, or return the empty string "" if there are not two pieces of bread.
+
+getSandwich("breadjambread") → "jam"
+getSandwich("xxbreadjambreadyy") → "jam"
+getSandwich("xxbreadyy") → ""
+*/
+
+public class Main
+{
+  public static void main(String[] args) {
+    System.out.println(getSandwich("breadHello Worldbread"));
+  }
+
+  public static String getSandwich(String str) {
+    String result = "";
+    if(str.length() <= 10) {
+      return result;
+    }
+    int index = 0;
+    int count = 0;
+    int frontBreadB = str.indexOf("bread") + 5;
+    while(str.substring(index).indexOf("bread") > -1) {
+      count += 1;
+      index += 1;
+    }
+    if(count >= 2) {
+      result = str.substring(frontBreadB, index - 1);
+    }
+    return result;
+  }
+
+  // OR
+  // I DIDN'T KNOW THAT THERE'S A JAVA BUILT-IN METHOD CALLED LASTINDEXOF EGHHHHHHHH...
+  
+  public static String getSandwich(String str) {
+    int iFirst = str.indexOf("bread");
+    int iLast = str.lastIndexOf("bread");
+    if(iFirst != -1 && iLast != -1 && iFirst != iLast) {
+      return str.substring(iFirst + 5, iLast);
+    }
+    return "";
+  }
+}
