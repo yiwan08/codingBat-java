@@ -1,0 +1,30 @@
+/*
+Return a version of the given string, where for every star (*) in the string the star and the chars immediately to its left and right are gone. So "ab*cd" yields "ad" and "ab**cd" also yields "ad".
+
+starOut("ab*cd") → "ad"
+starOut("ab**cd") → "ad"
+starOut("sm*eilly") → "silly"
+*/
+
+public class Main
+{
+  public static void main(String[] args) {
+    System.out.println(starOut("Hello***World"));
+  }
+
+  public static String starOut(String str) {
+    String result = "";
+    for (int i = 0; i < str.length(); i++) {
+      if (i == 0 && str.charAt(i) != '*')
+        result += str.charAt(i);
+      if (i > 0 && str.charAt(i) != '*' && str.charAt(i-1) != '*')
+        result += str.charAt(i);
+      if (i > 0 && str.charAt(i) == '*' && str.charAt(i-1) != '*')
+        result = result.substring(0, result.length()-1);
+    }
+    return result;
+  }
+}
+
+// I'm just dumb, can't solve it after 3 days of trying, so just copied from this website :]
+// http://www.javaproblems.com/2013/11/java-string-2-starout-codingbat-solution.html
