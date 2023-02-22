@@ -17,6 +17,7 @@ public class Main
     {
       if(str.substring(i, i + 3).equals("xyz")) {
         if((i > 0 && str.charAt(i - 1) != '.') || i == 0) {
+          // if (i-1 < 0 || str.charAt(i-1) != '.')
           return true;
         }
       }
