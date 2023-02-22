@@ -2,7 +2,7 @@ public class Main
 {
   public static void main(String[] args)
   {
-    System.out.println(evenlySpaced(2, 2, 2));
+    System.out.println(withoutString("Hello there", "llo"));
   }
 
   public String withoutString(String base, String remove) {
