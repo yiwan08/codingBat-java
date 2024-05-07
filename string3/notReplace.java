@@ -16,13 +16,9 @@ public class Main
     str = " " + str + " ";
     String resultStr = "";
     for (int i = 1; i < str.length()-1; i++) {
-      if (i < str.length()-1 && str.substring(i, i+2).equals("is")) {
-        if (!Character.isLetter(str.charAt(i-1)) && !Character.isLetter(str.charAt(i+2))) {
+      if (i < str.length()-1 && str.substring(i, i+2).equals("is") && !Character.isLetter(str.charAt(i-1)) && !Character.isLetter(str.charAt(i+2))) {
           resultStr += "is not";
           i++;
-        } else {
-          resultStr += str.substring(i, i+1);
-        }
       } else {
         resultStr += str.substring(i, i+1);
       }
