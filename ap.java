@@ -89,3 +89,89 @@ public boolean dividesSelf(int n) {
   }
   return true;
 }
+-------------------
+public int[] copyEvens(int[] nums, int count) {
+  int[] resultArr = new int[count];
+  int index = 0;
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] % 2 == 0 && index != count) {
+      resultArr[index] = nums[i];
+      index++;
+    }
+  }
+  return resultArr;
+}
+-------------------
+public int[] copyEndy(int[] nums, int count) {
+  int[] resultArr = new int[count];
+  int index = 0;
+  for (int i = 0; i < nums.length; i++) {
+    if (isEndy(nums[i]) && index != count) {
+      resultArr[index] = nums[i];
+      index++;
+    }
+  }
+  return resultArr;
+}
+public boolean isEndy(int n) {
+  if ((0 <= n && n <= 10) || (90 <= n && n <= 100)) {
+    return true;
+  }
+  return false;
+}
+-------------------
+public int matchUp(String[] a, String[] b) {
+  int count = 0;
+  for (int i = 0; i < a.length; i++) {
+    if ((a[i].length() != 0 && b[i].length() != 0) && (a[i].charAt(0) == b[i].charAt(0))) {
+      count++;
+    }
+  }
+  return count;
+}
+-------------------
+public int scoreUp(String[] key, String[] answers) {
+  int mark = 0;
+  for (int i = 0; i < key.length; i++) {
+    if (!answers[i].equals("?")) {
+      if (key[i].equals(answers[i])) {
+        mark += 4;
+      } else {
+        mark -= 1;
+      }
+    }
+  }
+  return mark;
+}
+-------------------
+public String[] wordsWithout(String[] words, String target) {
+  int length = 0;
+  for (int i = 0; i < words.length; i++) {
+    if (!words[i].equals(target)) {
+      length++;
+    }
+  }
+  String[] resultArr = new String[length];
+  int index = 0;
+  for (int i = 0; i < words.length; i++) {
+    if (!words[i].equals(target) && index != length) {
+      resultArr[index] = words[i];
+      index++;
+    }
+  }
+  return resultArr;
+}
+-------------------
+public int scoresSpecial(int[] a, int[] b) {
+  return largestSpecial(a) + largestSpecial(b);
+}
+public int largestSpecial(int[] array) {
+  int largest = 0;
+  for (int i = 0; i < array.length; i++) {
+    if (array[i] > largest && array[i] % 10 == 0) {
+      largest = array[i];
+    }
+  }
+  return largest;
+}
+-------------------
