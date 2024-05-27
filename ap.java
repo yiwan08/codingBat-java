@@ -175,3 +175,87 @@ public int largestSpecial(int[] array) {
   return largest;
 }
 -------------------
+public int sumHeights(int[] heights, int start, int end) {
+  int sum = 0;
+  for(int i = start+1; i <= end; i++) {
+    sum += Math.abs(heights[i] - heights[i-1]);
+  }
+  return sum;
+}
+-------------------
+public int sumHeights2(int[] heights, int start, int end) {
+  int sum = 0;
+  for(int i = start+1; i <= end; i++) {
+    if (heights[i] - heights[i-1] < 0) {
+      sum += Math.abs(heights[i] - heights[i-1]);
+    } else {
+      sum += (heights[i] - heights[i-1])*2;
+    }
+  }
+  return sum;
+}
+-------------------
+public int bigHeights(int[] heights, int start, int end) {
+  int count = 0;
+  for(int i = start+1; i <= end; i++) {
+    if (Math.abs(heights[i] - heights[i-1]) >= 5) {
+      count++;
+    }
+  }
+  return count; 
+}
+-------------------
+public int userCompare(String aName, int aId, String bName, int bId) {
+  if ((aName.compareTo(bName)) < 0) {
+    return -1;
+  } else if ((aName.compareTo(bName)) > 0) {
+    return 1;
+  } else {
+    if (aId < bId) {
+      return -1;
+    } else if (aId > bId) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+}
+-------------------
+public String[] mergeTwo(String[] a, String[] b, int n) {
+  String[] resultArr = new String[n];
+  int indexA = 0;
+  int indexB = 0;
+  
+  for (int i = 0; i < n; i++) {
+    if (a[indexA].compareTo(b[indexB]) > 0) {
+      resultArr[i] = b[indexB];
+      indexB++;
+    } else if (a[indexA].compareTo(b[indexB]) < 0) {
+      resultArr[i] = a[indexA];
+      indexA++;
+    } else {
+      resultArr[i] = a[indexA];
+      indexA++;
+      indexB++;
+    }
+  }
+  return resultArr;
+}
+-------------------
+public int commonTwo(String[] a, String[] b) {
+  boolean already = false;
+  int count = 0;
+  for (int i = 0; i < a.length; i++) {
+    if (!(i < a.length-1 && a[i].equals(a[i+1]))) {
+      for (int j = 0; j < b.length; j++) {
+        if (b[j].equals(a[i]) && !already) {
+          count++;
+          already = true;
+        }
+      }
+    }
+    already = false;
+  }
+  return count;
+}
+-------------------
